@@ -94,12 +94,12 @@ go run main.go
 
 ### 1. 打卡成功（HTTP 200）
 
-*对应图片路径：`docs/images/checkin_200.png`*
+*对应图片路径：`docs/images/200.png`*
 
-![打卡成功截图](docs/images/checkin_200.png)
+![打卡成功截图](docs/images/200.png)
 
 ### 2. 参数校验失败（HTTP 400）
 
-*对应图片路径：`docs/images/checkin_400.png`*
+*对应图片路径：`docs/images/400.png`*
 
-![参数校验失败截图](docs/images/checkin_400.png)
+![参数校验失败截图](docs/images/400.png)
