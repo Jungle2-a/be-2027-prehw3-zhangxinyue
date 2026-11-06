@@ -5,6 +5,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+type CheckinRequest struct{
+	Name      string `json:"name" binding:"required"`
+	StudentID string `json:"student_id" binding:"required,min=10,max=12"`
+}
 
 func main() {
 	r := gin.Default()
@@ -13,6 +17,20 @@ func main() {
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
+		})
+	})
+	r.POST("/api/v1/checkin",func(c *gin.Context){
+		var req CheckinRequest
+		if err := c.ShouldBindJSON(&req); err !=nil{
+			c.JSON(http.StatusBadRequest,gin.H{
+				"error": err.Error(),
+			})
+			return
+		}
+		c.JSON(http.StatusOK,gin.H{
+			"message":   "打卡成功",
+			"name":      req.Name,
+			"student_id":req.StudentID,
 		})
 	})
 
